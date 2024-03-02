@@ -1,0 +1,21 @@
+{% extends "main_page.html" %}
+
+{% block content %}
+<h2>Зворотній зв'язок</h2>
+<form  method="post">
+    <div class="stars" data-rating="0">
+      {%for _ in range(1, 6)%}
+        <span class="star" data-value=f"{{_}}">&#9733;</span>
+      {%endfor%}
+    </div>
+    <input type="hidden" name="rating" id="rating">
+    <br>
+      {{form.name(class='form-control', placeholder="Ваше ім'я")}}
+    <br>
+      {{form.feedback(class='form-control', placeholder='Віш відгук')}}
+    <br><br>
+      {{form.submit}}
+  </form>
+  <script src="../static/js/main.js"></script>
+  <a href="{{ url_for('main_page') }}"><p>Головна</p></a>
+{% endblock content %}

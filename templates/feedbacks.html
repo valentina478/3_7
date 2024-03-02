@@ -1,0 +1,17 @@
+{% extends "main_page.html" %}
+
+{% block content %}
+    <h1>Feedbacks</h1>
+    {%for feedback in feedbacks%}
+    <div class="card border='2em solid #{% if feedback[1] > 3 %}c8ff9b{% elif feedback[1] == 3%}feffa8{% else %}ffbfbf{% endif %}">
+        <div class="header">
+            <span class="rating">{% for _ in range(feedback[1]) %}&#9733;{% endfor %}</span>
+            <br>
+            <span class="name">{{feedback[0]}}</span>
+        </div>
+        <div class="content">{{feedback[2]}}</div>
+    </div>
+    {%endfor%}
+    <a href="{{ url_for('main_page') }}"><p>Головна</p></a>
+
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends "main_page.html" %}
+
+{% block content %}
+    <h1>Data from DB</h1>
+    <table >
+        <tr>
+            <th>Name</th>
+            <th>Order Composition</th>
+            <th>Address</th>
+            <th>Phone</th>
+        </tr>
+
+        {% for row in data %}
+            <tr>
+                <td>{{ row['name'] }}</td>
+                <td>{{ row['order_composition'] }}</td>
+                <td>{{ row['address'] }}</td>
+                <td>{{ row['phone'] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('main_page') }}"><p>Головна</p></a>
+
+{% endblock content %}

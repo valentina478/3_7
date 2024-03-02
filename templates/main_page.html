@@ -1,0 +1,25 @@
+{% import "macros.html" as macros %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Піцерія "Смак Італії"</title>
+        <link rel="stylesheet" href="/static/css/first_theme.css">
+    </head>
+    <body>
+        {% block content %}
+        <h1>Смак Італії</h1>
+            <a href="{{ url_for('menu') }}">МЕНЮ</a></br></br></br>
+            <button class="btn" type="button" onclick="window.location.href='{{ url_for('order') }}';">Замовити піцу</button></br></br>
+            <button class="btn" type="button" onclick="window.location.href='{{ url_for('feedback') }}';">Залишити відгук</button></br></br>
+            <button class="btn" type="button" onclick="window.location.href='{{ url_for('feedbacks') }}';">Переглянути відгуки</button></br></br>
+            <p><a href="{{ url_for('db') }}">ПЕРЕГЛЯНУТИ БД</a></p></br></br></br>
+        {% endblock content %}
+
+        <footer>
+            <p>{{ macros.mode("body") }}</p>
+        </footer>
+    </body>
+</html>

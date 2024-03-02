@@ -1,0 +1,22 @@
+{% macro mode(element) %}
+  {% if request.args.get('mode') == 'second' %}
+    <a href="{{ request.path }}">Switch Mode</a>
+    <style>
+
+      {{ element }} {
+        background-image: url("https://i.pinimg.com/564x/ab/f4/7a/abf47a0b7e61cad0525b32ef49c36fa9.jpg");
+      }
+      {{ element }} h1{
+        -webkit-text-stroke: 3px #aa1910;
+      }
+      {{ element }} a {
+        -webkit-text-stroke: 2px #aa1910;
+      }
+      {{ element }} , label, option, select, input, button{
+        -webkit-text-stroke: 2px #aa1910;
+      }
+    </style>
+  {% else %}
+    <a href="{{ request.path }}?mode=second">Switch Mode</a>
+  {% endif %}
+{% endmacro %}

@@ -1,0 +1,27 @@
+{% extends "main_page.html" %}
+
+{% block content %}
+    <div class="block_o">
+        <form method="post">
+                <br/><br/>
+                <label for="name">Введіть ім'я замовника</label>
+                <input type="text" name="name" id="name" placeholder="Ваше ім'я" required><br/>
+                <label for="order">Оберіть найсмачнішу піцу</label>
+                <select id="order" name="order" multiple size="3">
+                    <option value="">--Варіанти--</option>
+                    {% for key, value in for_order.items() %}
+                        <option value="{{key}}">{{ value }}</option>
+                    {% endfor %}
+                </select><br/>
+                <label for="address">Введіть адресу доставки</label>
+                <input type="text" name="address" id="address" placeholder="Ваша адреса доставки" required><br/>
+                <label for="phone">Введіть номер телефону</label>
+                <input type="tel" name="phone" id="phone" placeholder="Ваш номер телефону" required><br/>
+
+            <button type="reset">Скинути</button>
+            <button type="submit">Замовити</button>
+        </form>
+    </div>
+    <a href="{{ url_for('main_page') }}"><p>Головна</p></a>
+
+{% endblock content %}
